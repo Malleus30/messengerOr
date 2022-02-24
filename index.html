@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger</title>
+    <link rel="stylesheet"  href="./css/reset.css">
+</head>
+<body>
+    <div class="main_form">
+
+      <div class="main_content"  id="main_id">
+
+        <div class="buttons_form">
+            <a class="settings" href="#auto">Settings</a>
+            <a class="exit">Exit</a>
+        </div>
+        
+        <div class="read_screen_box">
+        <div class="read_screen">
+          <div class="read_screen_message my">Я:Добрый день!<div class="time">18:45</div></div>
+          <div class="read_screen_message his">Собеседник мой: Добрый день!<div class="time">18:45</div></div>
+          <div class="read_screen_message his">Собеседник мой: А это второе и кажется оно очень длинное, чтобы поместиться на одной строке.<div class="time">18:45</div></div>
+          <div class="read_screen_message my">Я:Добрый день!<div class="time">18:45</div></div>
+         </div>
+        </div>
+        <div class="write_field">
+           <form action="" class="formEvent"  onsubmit="return false;">
+            <input type="text" id="inp_field">
+            <button id="send_btn" class="send_btn">-></button>
+           </form>
+        </div>
+      </div>
+
+      
+      <div class="opend" id="open_id"> 
+          <div class="opend_body">
+            <div class="opend_upper">
+              <p>Settings</p>
+              <div class="close_cross">
+                <a href="#main_id" class="close"></a>
+              </div>
+            </div>
+            <label for="chat_name" class="labels"> Name in the chat</label>
+            <input id="chat_name">
+            <a class="anchor" href="#main.id"><button id="name_btn" class="send_btn">-></button></a>
+          </div>
+      </div>
+
+      
+      <div class="opend" id="auto"> 
+        <div class="opend_body">
+          <div class="opend_upper">
+            <p>Avtorization</p>
+            <div class="close_cross">
+              <a href="#main_id" class="close"></a>
+            </div>
+          </div>
+          <label for="set_inp" class="labels"> Email</label>
+          <input class="set_inp" id="avto_field">
+          <a class='anchor' href="#aprove"><button class="send_btn" id="avto_btn">Get the code</button></a>
+        </div>
+    </div>
+      
+
+    <div class="opend" id="aprove"> 
+      <div class="opend_body">
+        <div class="opend_upper">
+          <p>Approval</p>
+          <div class="close_cross">
+            <a href="#main_id" class="close"></a>
+          </div>
+        </div>
+        <label for="set_inp" class="labels">Code</label>
+        <input class="set_inp" id="aprove_field">
+        <a class='anchor' href="#open_id"><button class="send_btn" id="aprove_btn">Enter</button></a>
+      </div>
+  </div>
+  
+
+    </div>
+
+    <template id="tmpl">
+      <div class="read_screen_message my"><span></span><div class="time">18:45</div></div>
+     </template>
+     
+     <template  id='hisTml'>
+      <div class="read_screen_message his"><span></span><div class="time">18:45</div></div>
+     </template>
+
+    <script type="module" src="./js/main.js" ></script>
+</body>
+</html>
