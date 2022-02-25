@@ -129,20 +129,30 @@ async function setName(){
  UI.nameInp.value='';
 }
 
-async function historyGet(){
-  const token = COOKIES.getCookie('token');
-  const URL = 'https://chat1-341409.oa.r.appspot.com/api/messages';
-  const historyResponse = sendRequest(METHODS.get, URL, token, null);
-  const historyJson = await historyResponse;
-  // historyJson.messages.forEach(x=> renderHistory(x.text, x.user.email, x.user.name));
-  let i= localStorage.getItem('i') || 0;
+      function historyGet(){
+  
+     const arr = JSON.parse(localStorage.getItem('messages'));
+     if(!arr) return;
  
-    for(i; i<5; i++){
-      renderHistory(historyJson.messages[i].text, historyJson.messages[i].user.email, historyJson.messages[i].user.name);
+    for(let i=0; i<7; i++){
+      let obj = arr.messages.pop()
+      renderHistory(obj.text, obj.user.email, obj.user.name);
     }
-    localStorage.setItem('i',0);
+    localStorage.setItem('messages', JSON.stringify(arr));
+   
 }
-historyGet();
+
+    async function historyLoad(){
+      const token = COOKIES.getCookie('token');
+      const URL = 'https://chat1-341409.oa.r.appspot.com/api/messages';
+      const historyResponse = sendRequest(METHODS.get, URL, token, null);
+      const historyJson = await historyResponse;
+      localStorage.setItem('messages', JSON.stringify(historyJson));
+      
+      historyGet();
+    }
+
+    historyLoad();
  
 
 
@@ -177,4 +187,3 @@ if(event.target.scrollTop == 0){
 
 })
 
-//console.log(scrollY+'px');
